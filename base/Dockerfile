@@ -25,6 +25,9 @@ RUN make && make altinstall
 WORKDIR /root
 
 RUN git clone https://github.com/LISTERINE/dotfiles.git
-RUN python install.py
 WORKDIR dotfiles
-RUN vim -c NeoBundleInstall
+RUN python install.py
+RUN sh /root/neo_install.sh || true
+WORKDIR /root
+RUN .vim/bundle/neobundle.vim/bin/neoinstall || true
+#RUN (printf "\ny\n\n" && cat) | vim -c "q"
