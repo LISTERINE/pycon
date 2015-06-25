@@ -26,8 +26,6 @@ WORKDIR /root
 RUN git clone https://github.com/LISTERINE/dotfiles.git
 RUN mv dotfiles ~/.dotfiles
 WORKDIR ~/.dotfiles
-RUN pwd
-RUN ls
-RUN ["/bin/bash", "-c", "source", "install.sh"]
+#RUN ["/bin/bash", "-c", "source", "install.sh"]
 
-WORKDIR /root
+#WORKDIR /root
