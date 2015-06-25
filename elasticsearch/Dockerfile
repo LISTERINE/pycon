@@ -1,4 +1,4 @@
-FROM pycon:base
+FROM listerine/pycon
 MAINTAINER Jon Ferretti
 
 RUN apt-get install -y openjdk-7-jdk unzip
