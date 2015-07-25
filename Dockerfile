@@ -2,6 +2,7 @@ FROM ubuntu:latest
 MAINTAINER Jon Ferretti
 
 WORKDIR /root
+
 RUN apt-get update
 # Base tools
 RUN apt-get install -y git vim wget curl tar ssh
@@ -26,6 +27,4 @@ WORKDIR /root
 RUN git clone https://github.com/LISTERINE/dotfiles.git
 RUN mv dotfiles .dotfiles
 WORKDIR .dotfiles
-RUN /bin/bash -c source install.sh
-
-#WORKDIR /root
+RUN /bin/bash -c "source .bashrc"
