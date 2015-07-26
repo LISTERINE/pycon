@@ -1,4 +1,4 @@
-FROM listerine/pycon
+FROM listerine/dev-env
 MAINTAINER Jon Ferretti
 
 RUN pip install virtualenv
