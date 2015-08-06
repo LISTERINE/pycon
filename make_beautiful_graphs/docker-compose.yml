@@ -1,0 +1,5 @@
+makegraphs:
+    #image: listerine/makebeautifulgraphs_pycon2015
+    build: .
+    ports:
+        - 80:80

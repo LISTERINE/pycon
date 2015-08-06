@@ -13,16 +13,10 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
 
 ENV PATH /opt/conda/bin:$PATH
 
-WORKDIR /root
+RUN git clone https://github.com/plotly/pycon-2015.git
 
-RUN git clone https://github.com/sarguido/hands-on-analysis-python.git
+WORKDIR pycon-2015
 
-WORKDIR hands-on-analysis-python
-
-#RUN conda update conda
-#RUN conda create -n hodap python=2.7
-
-#RUN /bin/bash -c "source activate hodap && ipython profile create nbserver"
 RUN /bin/bash -c "conda run ipython profile create nbserver"
 
 # Inject notebook settings
@@ -30,5 +24,7 @@ RUN printf "%s\n" "c.IPKernelApp.pylab = 'inline'" >> /root/.ipython/profile_nbs
 	printf "%s\n" "c.NotebookApp.ip = '*'" >> /root/.ipython/profile_nbserver/ipython_notebook_config.py && \
 	printf "%s\n" "c.NotebookApp.open_browser = False" >> /root/.ipython/profile_nbserver/ipython_notebook_config.py && \
 	printf "%s\n" "c.NotebookApp.port = 80" >> /root/.ipython/profile_nbserver/ipython_notebook_config.py
+
+RUN /bin/bash -c "pip install plotly"
 
 CMD ["/bin/bash", "-c", "conda run 'ipython notebook --profile=nbserver'"]

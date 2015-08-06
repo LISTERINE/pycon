@@ -6,3 +6,5 @@ RUN wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elastics
 RUN unzip elasticsearch-1.4.4.zip
 RUN elasticsearch-1.4.4/bin/plugin -i elasticsearch/marvel/latest
 RUN git clone https://github.com/LISTERINE/elasticsearch-tutorial.git
+
+WORKDIR elasticsearch-tutorial

@@ -1,0 +1,4 @@
+handsondata:
+    image: listerine/handsondata_pycon2015:latest
+    ports:
+        - 80:80
